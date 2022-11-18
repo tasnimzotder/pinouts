@@ -20,6 +20,36 @@ const NodeMCUv2: BoardType = {
     name: 'ESP8266',
     id: 'esp8266',
   },
+  special_pins: [
+    {
+      id: 'i2c',
+      name: 'I2C',
+      type: 'protocol',
+      pins: ['l2', 'l1'],
+      description: 'I2C',
+    },
+    {
+      id: 'pwm',
+      name: 'PWM',
+      type: 'pin',
+      pins: ['l3'],
+      description: 'PWM',
+    },
+    {
+      id: 'adc',
+      name: 'ADC',
+      type: 'pin',
+      pins: ['l1'],
+      description: 'Power',
+    },
+    {
+      id: 'built-in-led',
+      name: 'Built-in LED',
+      type: 'pin',
+      pins: ['l4'],
+      description: 'Built-in LED',
+    },
+  ],
   pins: {
     left: [
       {
@@ -93,7 +123,7 @@ const NodeMCUv2: BoardType = {
         directions: ['in', 'out'],
       },
       {
-        id: 'l121',
+        id: 'l11',
         names: ['3.3V'],
         display_name: '3V3',
         type: 'power',
@@ -236,18 +266,6 @@ const NodeMCUv2: BoardType = {
       },
     ],
   },
-  special_pins: [
-    {
-      name: 'I2C',
-      pins: ['D1', 'D2'],
-      description: 'I2C',
-    },
-    {
-      name: 'Power',
-      pins: ['3V3'],
-      description: 'Power',
-    },
-  ],
 };
 
 export default NodeMCUv2;

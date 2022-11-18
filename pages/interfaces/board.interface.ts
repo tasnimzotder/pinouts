@@ -4,7 +4,7 @@ type BoardType = {
   description: string;
   image: string;
   pins: PinsType;
-  special_pins: Array<SpecialPinDescription>;
+  special_pins: Array<SpecialPinsType>;
   operating_voltage?: number;
   supported_protocols?: Array<string>;
   supported_frameworks?: Array<string>;
@@ -33,7 +33,7 @@ type PinType = {
   id: string;
   names: string[];
   display_name?: string;
-  type: 'digital' | 'analog' | 'power' | 'ground';
+  type: 'digital' | 'analog' | 'power' | 'ground' | 'other';
   special_types?: SpecialTypePin[];
   directions: Array<'in' | 'out'>;
   operation_voltage?: number;
@@ -50,12 +50,21 @@ type SpecialTypePin =
   | 'Power'
   | 'Ground';
 
-type SpecialPinDescription = {
+type SpecialPinsType = {
+  id: string;
   name: string;
+  type:
+    | 'analog'
+    | 'digital'
+    | 'power'
+    | 'ground'
+    | 'protocol'
+    | 'pin'
+    | 'other';
   pins: Array<string>;
   description: string;
 };
 
 export default BoardType;
 
-export type { BoardType, PinsType, PinType };
+export type { BoardType, PinsType, PinType, SpecialPinsType };

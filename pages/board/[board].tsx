@@ -1,18 +1,16 @@
 import BoardDetailsPanel from '@components/board/boardDetailsPanel/BoardDetailsPanel';
 import PinsInteractive from '@components/board/pinsInteractive/PinsInteractive';
+import { useSelected } from '@pages/contexts/selected.context';
 import BoardType from '@pages/interfaces/board.interface';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const BoardPageSingle = ({ boardData }: { boardData: BoardType }) => {
-  const [highlightedPins, setHighlightedPins] = useState<string[]>([]);
-
   return (
     <div>
       <div className="flex flex-row bg-red-50 justify-evenly mx-auto px-[5%] py-5">
-        <PinsInteractive pins={boardData.pins} />
-        {/* <SpecialPinsView special_pins={specialPins} /> */}
+        <PinsInteractive boardData={boardData} />
         <BoardDetailsPanel boardData={boardData} />
       </div>
     </div>

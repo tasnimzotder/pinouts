@@ -1,4 +1,9 @@
-import { PinsType, PinType } from '@pages/interfaces/board.interface';
+import { useSelected } from '@pages/contexts/selected.context';
+import BoardType, {
+  PinsType,
+  PinType,
+} from '@pages/interfaces/board.interface';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const PinCol = ({
@@ -11,23 +16,28 @@ const PinCol = ({
   highlightedPins: string[];
 }) => {
   const rounded = col === 'right' ? 'rounded-l-full' : 'rounded-r-full';
+  const { updateSelected } = useSelected();
 
-  const get_sq_styles = (pin: PinType) => {
+  const get_sq_styles = (type: string) => {
     let style_str = '';
 
-    if (pin.type == 'power') {
+    if (type == 'power') {
       style_str += 'bg-red-500';
       style_str += ' rounded-full';
-    } else if (pin.type == 'ground') {
+    } else if (type == 'ground') {
       style_str += 'bg-gray-500';
       style_str += ' rounded-full';
-    } else if (pin.type == 'digital') {
+    } else if (type == 'digital') {
       style_str += 'bg-blue-500';
-    } else if (pin.type == 'analog') {
+    } else if (type == 'analog') {
       style_str += 'bg-yellow-500';
     }
 
     return style_str;
+  };
+
+  const PinSymbol = ({ type }: { type: string }) => {
+    return <div className={'h-3 w-3' + ` ${get_sq_styles(type)}`}></div>;
   };
 
   return (
@@ -39,39 +49,76 @@ const PinCol = ({
           <div
             key={idx}
             className={
-              'bg-red-200 flex flex-row gap-3 px-3 m-2 p-1 hover:bg-blue-200 items-center cursor-pointer' +
+              'bg-red-200 flex flex-row gap-3 px-3 m-2 p-1 hover:bg-blue-200 cursor-pointer' +
               ` ${rounded}` +
               ` ${isHighlighted ? 'bg-blue-300' : ''}`
             }
-            onClick={() => {}}
+            onClick={() => {
+              updateSelected(pin.id, pin.type);
+            }}
           >
-            <div className={'h-3 w-3' + ` ${get_sq_styles(pin)}`}></div>
-            <div className="flex flex-row gap-1">
-              <div className="bg-red-300 rounded-sm px-1">
-                {pin.display_name}
-              </div>
+            <div
+              className={
+                'flex flex-row gap-3 items-center w-full' +
+                `${col === 'left' ? ' justify-end' : ''}`
+              }
+            >
+              {col === 'right' && (
+                <div className="flex flex-row items-center gap-2">
+                  <PinSymbol type={pin.type} />
+                  <div className="bg-red-300 rounded-sm px-1">
+                    {pin.display_name}
+                  </div>
+                </div>
+              )}
+
               <div>{pin.names[0]}</div>
+
+              {col === 'left' && (
+                <div className="flex flex-row items-center gap-2">
+                  <div className="bg-red-300 rounded-sm px-1">
+                    {pin.display_name}
+                  </div>
+                  <PinSymbol type={pin.type} />
+                </div>
+              )}
             </div>
           </div>
         );
       })}
-
-      {JSON.stringify(highlightedPins)}
     </div>
   );
 };
 
-const PinsInteractive = ({ pins }: { pins: PinsType }) => {
-  const [selectedPin, setSelectedPin] = useState<string>();
+const PinsInteractive = ({ boardData }: { boardData: BoardType }) => {
+  const pins = boardData.pins;
+  const router = useRouter();
+
   const [highlightedPins, setHighlightedPins] = useState<string[]>([]);
+  const { type, selected } = useSelected();
+
+  useEffect(() => {
+    if (type === 'power' || type === 'ground') {
+      setHighlightedPins(
+        pins.right
+          .filter((pin) => pin.type === type)
+          .map((pin) => pin.id)
+          .concat(
+            pins.left.filter((pin) => pin.type === type).map((pin) => pin.id)
+          )
+      );
+    } else if (type === 'protocol' || type === 'pin') {
+      setHighlightedPins(
+        boardData.special_pins.find((pin_s) => pin_s.id === selected)?.pins ||
+          []
+      );
+    } else {
+      setHighlightedPins([]);
+    }
+  }, [type, selected, pins.left, pins.right, boardData.special_pins]);
 
   const leftPins = pins.left;
   const rightPins = pins.right;
-
-  // test
-  useEffect(() => {
-    setHighlightedPins(['r4', 'r2', 'l1']);
-  }, [rightPins]);
 
   return (
     <div>

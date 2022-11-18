@@ -1,17 +1,26 @@
-import Link from 'next/link';
+import { SpecialPinsType } from '@interfaces/board.interface';
+import { useSelected } from '@pages/contexts/selected.context';
 
-const SpecialPinsView = ({ special_pins }: { special_pins: string[] }) => {
+const SpecialPinsView = ({
+  special_pins,
+}: {
+  special_pins: SpecialPinsType[];
+}) => {
+  const { updateSelected } = useSelected();
+
   return (
-    <div>
-      {special_pins.map((pin, idx) => {
+    <div className="my-6 flex flex-row gap-3">
+      {special_pins.map((cat, idx) => {
         return (
-          <Link
-            href={`/pin/${pin}`}
+          <div
             key={idx}
-            className="bg-blue-400 mx-1 px-1 rounded-sm text-white"
+            onClick={() => {
+              updateSelected(cat.id, cat.type);
+            }}
+            className="bg-red-200 hover:bg-blue-200 cursor-pointer px-1 rounded-sm w-fit"
           >
-            {pin}
-          </Link>
+            {cat.name}
+          </div>
         );
       })}
     </div>
