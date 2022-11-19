@@ -44,4 +44,5 @@ const SelectedContextProvider = ({
 };
 
 // export the context
+export default SelectedContextProvider;
 export { useSelected, SelectedContextProvider };

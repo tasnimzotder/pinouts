@@ -13,6 +13,15 @@ type BoardType = {
     name: string;
     id: string;
   };
+  operation_voltage?: {
+    min: number;
+    max: number;
+  };
+  max_current?: number;
+  manufacturer?: {
+    name: string;
+    url: string;
+  };
 };
 
 type PinsCountsType = {
@@ -32,13 +41,22 @@ type PinsType = {
 type PinType = {
   id: string;
   names: string[];
-  display_name?: string;
+  board_pin?: string;
   type: 'digital' | 'analog' | 'power' | 'ground' | 'other';
   special_types?: SpecialTypePin[];
   directions: Array<'in' | 'out'>;
-  operation_voltage?: number;
-  max_current?: number;
-  manufacturer?: string;
+  disabled?: boolean;
+  disabled_reason?: string;
+  disconnected?: boolean;
+  disconnected_reason?: string;
+  description?: string;
+  note?: string;
+  pull_resistor?: 'up' | 'down';
+  voltage?: number;
+  current?: {
+    min: number;
+    max: number;
+  };
 };
 
 type SpecialTypePin =
@@ -62,7 +80,7 @@ type SpecialPinsType = {
     | 'pin'
     | 'other';
   pins: Array<string>;
-  description: string;
+  note?: string;
 };
 
 export default BoardType;

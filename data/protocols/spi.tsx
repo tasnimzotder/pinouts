@@ -1,4 +1,4 @@
-import { ProtocolType } from '@interfaces/protocol.interface';
+import { ProtocolType } from '../../lib/interfaces/protocol.interface';
 
 const SPI: ProtocolType = {
   id: 'spi',

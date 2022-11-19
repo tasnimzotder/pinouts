@@ -1,4 +1,4 @@
-import BoardList from '@components/homepage/boardList/BoardList';
+import BoardList from '@components/common/boardList/BoardList';
 import { NextPage } from 'next';
 
 const BoardPage: NextPage = () => {

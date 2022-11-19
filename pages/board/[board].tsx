@@ -1,7 +1,8 @@
 import BoardDetailsPanel from '@components/board/boardDetailsPanel/BoardDetailsPanel';
 import PinsInteractive from '@components/board/pinsInteractive/PinsInteractive';
-import { useSelected } from '@pages/contexts/selected.context';
-import BoardType from '@pages/interfaces/board.interface';
+import { useSelected } from '../../lib/contexts/selected.context';
+import BoardType from '../../lib/interfaces/board.interface';
+import { getBoardData } from '../../lib/services/board.service';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -17,10 +18,10 @@ const BoardPageSingle = ({ boardData }: { boardData: BoardType }) => {
   );
 };
 
-const getBoardData = async (board: string) => {
-  const data = await import(`@data/boards/${board}`);
-  return data.default;
-};
+// const getBoardData = async (board: string) => {
+//   const data = await import(`@data/boards/${board}`);
+//   return data.default;
+// };
 
 export const getStaticPaths = async () => {
   return {

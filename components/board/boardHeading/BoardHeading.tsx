@@ -1,5 +1,5 @@
-import BoardType from '@interfaces/board.interface';
-import { useSelected } from '@pages/contexts/selected.context';
+import BoardType from '../../../lib/interfaces/board.interface';
+import { useSelected } from '../../../lib/contexts/selected.context';
 
 const BoardHeading = ({ boardData }: { boardData: BoardType }) => {
   const { updateSelected } = useSelected();

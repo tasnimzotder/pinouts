@@ -1,8 +1,8 @@
-import BoardType from '@interfaces/board.interface';
+import BoardType from '../../../../lib/interfaces/board.interface';
 
 const BoardDetails = ({ boardData }: { boardData: BoardType }) => {
   return (
-    <div>
+    <div className="bg-yellow-100 flex flex-col gap-2">
       <div>{boardData.description}</div>
 
       <div>Chip: {boardData.chip.name}</div>

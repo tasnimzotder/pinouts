@@ -1,29 +1,32 @@
-import { ProtocolType } from '@interfaces/protocol.interface';
+import { ProtocolType } from '../../../../lib/interfaces/protocol.interface';
+import { getProtocolData } from '../../../../lib/services/protocol.service';
 import { useEffect, useState } from 'react';
 
 const ProtocolDetails = ({ protocol }: { protocol: string }) => {
   const [protocolData, setProtocolData] = useState<ProtocolType>();
 
   useEffect(() => {
-    try {
-      import(`@data/protocols/${protocol}`)
-        .then((data) => {
-          setProtocolData(data.default);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  });
+    const getProtocolData_l = async () => {
+      const data = await getProtocolData(protocol);
+      setProtocolData(data);
+    };
+
+    getProtocolData_l();
+  }, [protocol]);
 
   return (
     <div>
-      <div>Protocol Details</div>
-      <div>Protocol: {protocol}</div>
+      <div>Protocol: {protocolData?.name}</div>
 
-      {protocolData && <div>{JSON.stringify(protocolData, null, 2)}</div>}
+      <div>Protocol Details</div>
+
+      <div>{protocolData?.description}</div>
+
+      <div>Number of wires: {protocolData?.wires.number_of_wires}</div>
+
+      <div>Clock wire: {protocolData?.wires.clock_wire ? 'Yes' : 'No'}</div>
+
+      <div>Speed: {protocolData?.speed}</div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import { SpecialPinsType } from '@interfaces/board.interface';
-import { useSelected } from '@pages/contexts/selected.context';
+import { SpecialPinsType } from '../../../lib/interfaces/board.interface';
+import { useSelected } from '../../../lib/contexts/selected.context';
 
 const SpecialPinsView = ({
   special_pins,

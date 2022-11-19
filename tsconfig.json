@@ -17,9 +17,10 @@
     "paths": {
       "@components/*": ["./components/*"],
       "@styles/*": ["./styles/*"],
-      "@utils/*": ["./pages/utils/*"],
-      "@interfaces/*": ["./pages/interfaces/*"],
-      "@services/*": ["./pages/services/*"],
+      "@utils/*": ["./lib/utils/*"],
+      "@interfaces/*": ["./lib/interfaces/*"],
+      "@services/*": ["./lib/services/*"],
+      "@contexts/*": ["./lib/contexts/*"],
       "@data/*": ["./data/*"],
       "@pages/*": ["./pages/*"]
     }
