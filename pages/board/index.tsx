@@ -1,13 +1,12 @@
 import BoardList from '@components/common/boardList/BoardList';
-import Heading from '@components/homePage/heading/Heading';
+import { NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 
-export default function Home() {
+const BoardPage: NextPage = () => {
   const meta = {
-    title: 'Pinouts',
-    description: 'Interactive pinouts for various boards, chips, and more',
-    url: 'https://pinouts.vercel.app',
+    title: 'Boards | Pinouts',
+    description: 'Interactive pinouts for various boards',
+    url: 'https://pinouts.vercel.app/board',
     author: {
       name: 'Tasnim Zotder',
     },
@@ -35,21 +34,15 @@ export default function Home() {
         <meta property="twitter:title" content={meta.title} />
         <meta property="twitter:description" content={meta.description} />
         {/* <meta property="twitter:image" content="" /> */}
-
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="max-w-5xl mx-auto">
-        <Heading />
-
-        <div className="max-w-3xl mx-auto">
-          <Link href="/board" className="text-xl font-medium my-5">
-            Boards: Interactive Pinouts
-          </Link>
-
+      <main>
+        <div className="max-w-4xl mx-auto my-16">
+          <h1 className="my-5 text-xl">Boards: Interactive Pinouts</h1>
           <BoardList />
         </div>
       </main>
     </div>
   );
-}
+};
+
+export default BoardPage;
