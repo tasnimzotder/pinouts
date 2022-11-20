@@ -9,7 +9,7 @@ const SpecialPinsView = ({
   const { updateSelected } = useSelected();
 
   return (
-    <div className="my-6 flex flex-row gap-3">
+    <div className="my-6 flex flex-row gap-3 flex-wrap">
       {special_pins.map((cat, idx) => {
         return (
           <div

@@ -1,4 +1,5 @@
 import HighlightText from '@components/common/utils/HighlightText';
+import SemiBoldSpan from '@components/common/utils/SemiBoldSpan';
 import { useSelected } from '@contexts/selected.context';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -20,8 +21,94 @@ const BoardDetails = ({ boardData }: { boardData: BoardType }) => {
 
       <div>
         Operating Voltage:{' '}
-        <span className="font-semibold">{boardData.operating_voltage}V</span>
+        <span className="font-semibold">
+          {boardData.specifications?.operation_voltage}V
+        </span>
       </div>
+
+      {/* technical specifications */}
+      {boardData.specifications?.clock_speed && (
+        <div>
+          Clock Speed:{' '}
+          <SemiBoldSpan>{boardData.specifications.clock_speed}</SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.flash_memory && (
+        <div>
+          Flash Memory:{' '}
+          <SemiBoldSpan>{boardData.specifications.flash_memory}</SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.sram && (
+        <div>
+          SRAM: <SemiBoldSpan>{boardData.specifications.sram}</SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.eeprom && (
+        <div>
+          EEPROM: <SemiBoldSpan>{boardData.specifications.eeprom}</SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.operation_voltage && (
+        <div>
+          Operation Voltage:{' '}
+          <SemiBoldSpan>
+            {boardData.specifications.operation_voltage}V
+          </SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.input_voltage && (
+        <div>
+          Input Voltage:{' '}
+          <SemiBoldSpan>
+            {boardData.specifications.input_voltage.min}V
+          </SemiBoldSpan>
+          {'-'}
+          <SemiBoldSpan>
+            {boardData.specifications.input_voltage.max}V
+          </SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.max_current && (
+        <div>
+          Max Current:{' '}
+          <SemiBoldSpan>{boardData.specifications.max_current}</SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.adc_range && (
+        <div>
+          ADC Range:{' '}
+          <SemiBoldSpan>{boardData.specifications.adc_range.min}V</SemiBoldSpan>
+          {'-'}
+          <SemiBoldSpan>{boardData.specifications.adc_range.max}V</SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.wifi && (
+        <div>
+          WiFi:{' '}
+          <SemiBoldSpan>
+            {boardData.specifications.wifi.protocol} (
+            {boardData.specifications.wifi.bands})
+          </SemiBoldSpan>
+        </div>
+      )}
+
+      {boardData.specifications?.bluetooth && (
+        <div>
+          Bluetooth:{' '}
+          <SemiBoldSpan>
+            {boardData.specifications.bluetooth.version}
+          </SemiBoldSpan>
+        </div>
+      )}
 
       {boardData.supported_protocols && (
         <div>

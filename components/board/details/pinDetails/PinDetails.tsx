@@ -5,6 +5,7 @@ import BoardType, {
 import { to_capitalize } from '@utils/textMods.util';
 import { check_pwm } from '@utils/pin.util';
 import HighlightText from '@components/common/utils/HighlightText';
+import SemiBoldSpan from '@components/common/utils/SemiBoldSpan';
 
 const PinDetails = ({
   pinData,
@@ -43,17 +44,21 @@ const PinDetails = ({
         Type:
         <span className="font-semibold"> {to_capitalize(pinData.type)}</span>
       </div>
+
       {/* directions */}
-      <div>
-        Directions:{' '}
-        {pinData.directions.map((direction: string, key) => {
-          return (
-            <span key={key} className="font-semibold mx-1">
-              {direction.toUpperCase()}
-            </span>
-          );
-        })}
-      </div>
+      {pinData.directions && (
+        <div>
+          Directions:{' '}
+          {pinData.directions.map((direction: string, key) => {
+            return (
+              <span key={key} className="font-semibold mx-1">
+                {direction.toUpperCase()}
+              </span>
+            );
+          })}
+        </div>
+      )}
+
       {supportedProtocols[0] && (
         <div>Supported Protocols: {supportedProtocols}</div>
       )}
@@ -67,10 +72,18 @@ const PinDetails = ({
         </div>
       )}
 
-      {/* note */}
       {pinData.notes && (
         <div>
-          Notes: <span>{pinData.notes}</span>
+          Notes:
+          <ul className="pl-12 list-disc">
+            {pinData.notes.map((note, index) => {
+              return (
+                <li key={index}>
+                  <SemiBoldSpan>{note}</SemiBoldSpan>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       )}
     </div>

@@ -10,6 +10,11 @@ const I2C: ProtocolType = {
     clock_wire: true,
   },
   speed: 'Up to 400 kHz',
+  used_for: [
+    'Communicating with sensors',
+    'Communicating with displays',
+    'Communicating with EEPROMs',
+  ],
 };
 
 export default I2C;

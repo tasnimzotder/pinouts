@@ -1,6 +1,6 @@
 import BoardType from '../../lib/interfaces/board.interface';
 
-const ArduinoUno: any = {
+const ArduinoUno: BoardType = {
   id: 'arduinouno',
   name: 'Arduino UNO',
   description: 'Arduino UNO is an open source IoT platform.',
@@ -15,25 +15,26 @@ const ArduinoUno: any = {
       align: 'start',
     },
   },
+  pins_counts: {
+    gpio: 14,
+    analog: 6,
+    pwm: 6,
+    i2c: 2,
+    spi: 4,
+    uart: 2,
+  },
+  specifications: {
+    clock_speed: '16 MHz',
+    flash_memory: '32 KB',
+    sram: '2 KB',
+    eeprom: '1 KB',
+    operation_voltage: 5,
+    input_voltage: {
+      min: 7,
+      max: 12,
+    },
+  },
   special_pins: [
-    {
-      id: 'spi',
-      name: 'SPI',
-      type: 'protocol',
-      pins: [],
-    },
-    {
-      id: 'i2c',
-      name: 'I2C',
-      type: 'protocol',
-      pins: [],
-    },
-    {
-      id: 'uart',
-      name: 'UART',
-      type: 'protocol',
-      pins: ['r17', 'r18'],
-    },
     {
       id: 'pwm',
       name: 'PWM',
@@ -45,7 +46,24 @@ const ArduinoUno: any = {
       name: 'ADC',
       type: 'pin',
       pins: ['l8', 'l9', 'l10', 'l11', 'l12', 'l13', 'l14', 'l15'],
-      key_point: '10 bit Analog to Digital Converter (ADC).',
+    },
+    {
+      id: 'built-in-led',
+      name: 'Built-in LED',
+      type: 'pin',
+      pins: ['r5'],
+    },
+    {
+      id: 'power',
+      name: 'Power',
+      type: 'pin',
+      pins: ['l4', 'l5'],
+    },
+    {
+      id: 'ground',
+      name: 'Ground',
+      type: 'pin',
+      pins: ['l6', 'l7', 'r4'],
     },
   ],
   pins: {
@@ -76,28 +94,28 @@ const ArduinoUno: any = {
         board_pin: '3V3',
         names: ['3.3V'],
         type: 'power',
-        directions: ['out'],
+        directions: ['in', 'out'],
       },
       {
         id: 'l5',
         board_pin: '5V',
         names: ['5V'],
         type: 'power',
-        directions: ['out'],
+        directions: ['in', 'out'],
       },
       {
         id: 'l6',
         board_pin: 'GND',
         names: ['GND'],
         type: 'ground',
-        directions: ['out'],
+        directions: ['in', 'out'],
       },
       {
         id: 'l7',
         board_pin: 'GND',
         names: ['GND'],
         type: 'ground',
-        directions: ['out'],
+        directions: ['in', 'out'],
       },
       {
         id: 'l8',
@@ -148,28 +166,25 @@ const ArduinoUno: any = {
         board_pin: '_',
         names: ['I2C - CLK'],
         type: 'digital',
-        directions: [],
       },
       {
         id: 'r2',
         board_pin: '_',
         names: ['I2C - DATA'],
         type: 'digital',
-        directions: [],
       },
       {
         id: 'r3',
         board_pin: 'AREF',
         names: ['AREF'],
         type: 'other',
-        directions: [],
       },
       {
         id: 'r4',
         board_pin: 'GND',
         names: ['GND'],
         type: 'ground',
-        directions: ['out'],
+        directions: ['in', 'out'],
       },
       {
         id: 'r5',

@@ -9,6 +9,7 @@ import BoardDetails from '../details/boardDetails/BoardDetails';
 import PinDetails from '../details/pinDetails/PinDetails';
 import ProtocolDetails from '../details/protocolDetails/protocolDetails';
 import { findPinFromBoard } from '@utils/pin.util';
+import PinFuncDetails from '../details/pinFuncDetails/PinFuncDetails';
 
 const BoardDetailsPanel = ({ boardData }: { boardData: BoardType }) => {
   const specialPins = boardData.special_pins;
@@ -35,17 +36,32 @@ const BoardDetailsPanel = ({ boardData }: { boardData: BoardType }) => {
       <div>{type === 'board' && <BoardDetails boardData={boardData} />}</div>
 
       <div>
-        {type === 'protocol' && <ProtocolDetails protocol={selected} />}
+        {type === 'protocol' && (
+          <ProtocolDetails
+            protocol={selected}
+            notes={
+              boardData.special_pins.find((pin_s) => pin_s.id === selected)
+                ?.notes
+            }
+          />
+        )}
       </div>
 
       <div>
         {type === 'pin' && (
           <div>
-            {type} {selected}
+            {/* {type} {selected}
             {
               boardData.special_pins.find((pin_s) => pin_s.id === selected)
                 ?.notes
-            }
+            } */}
+            <PinFuncDetails
+              pinFuncId={selected}
+              notes={
+                boardData.special_pins.find((pin_s) => pin_s.id === selected)
+                  ?.notes
+              }
+            />
           </div>
         )}
       </div>

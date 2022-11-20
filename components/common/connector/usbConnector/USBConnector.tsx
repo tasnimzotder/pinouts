@@ -5,8 +5,6 @@ const USBConnector = ({
 }) => {
   let rotation: string = '';
 
-  console.log(side);
-
   switch (side) {
     case 'top':
       rotation = 'rotate-0';

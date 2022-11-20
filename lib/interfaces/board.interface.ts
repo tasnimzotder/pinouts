@@ -5,7 +5,6 @@ type BoardType = {
   image: string;
   pins: PinsType;
   special_pins: Array<SpecialPinsType>;
-  operating_voltage?: number;
   supported_protocols?: Array<string>;
   supported_frameworks?: Array<string>;
   pins_counts?: PinsCountsType;
@@ -13,23 +12,40 @@ type BoardType = {
     name: string;
     id: string;
   };
-  operation_voltage?: {
-    min: number;
-    max: number;
-  };
-  max_current?: number;
+
   manufacturer?: {
     name: string;
     url: string;
   };
   positions?: PositionsType;
+  specifications?: SpecificationsType;
+};
+
+type SpecificationsType = {
+  clock_speed?: string;
+  flash_memory?: string;
+  sram?: string;
+  eeprom?: string;
+  operation_voltage?: number;
+  input_voltage?: {
+    min: number;
+    max: number;
+  };
+  max_current?: number;
+  adc_range?: {
+    min: number;
+    max: number;
+  };
+  wifi?: {
+    protocol: string;
+    bands: Array<string>;
+  };
+  bluetooth?: {
+    version: string;
+  };
 };
 
 type PositionsType = {
-  // [key: string]: {
-  //   x: number;
-  //   y: number;
-  // };
   power_connector?: {
     side: 'left' | 'right' | 'top' | 'bottom';
     align: 'start' | 'end' | 'center';
@@ -54,9 +70,9 @@ type PinType = {
   id: string;
   names: string[];
   board_pin?: string;
-  type: 'digital' | 'analog' | 'power' | 'ground' | 'other';
+  type: 'digital' | 'analog' | 'power' | 'ground' | 'reserved' | 'other';
   special_types?: SpecialTypePin[];
-  directions: Array<'in' | 'out'>;
+  directions?: Array<'in' | 'out'>;
   disabled?: boolean;
   disabled_reason?: string;
   disconnected?: boolean;
@@ -97,4 +113,10 @@ type SpecialPinsType = {
 
 export default BoardType;
 
-export type { BoardType, PinsType, PinType, SpecialPinsType };
+export type {
+  BoardType,
+  PinsType,
+  PinType,
+  SpecialPinsType,
+  SpecificationsType,
+};

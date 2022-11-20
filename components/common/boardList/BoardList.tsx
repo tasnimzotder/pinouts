@@ -7,9 +7,11 @@ const BoardListTable = ({ boards }: { boards: BoardsType }) => {
   return (
     <table className="table w-full max-w-3xl mx-auto font-normal">
       <thead className="text-left border-b-2 border-blue-300">
-        <th>Board</th>
-        <th>Chip</th>
-        <th>Manufacturer</th>
+        <tr>
+          <th>Board</th>
+          <th>Chip</th>
+          <th>Manufacturer</th>
+        </tr>
       </thead>
 
       <tbody>
