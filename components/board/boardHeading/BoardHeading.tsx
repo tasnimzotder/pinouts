@@ -6,12 +6,13 @@ const BoardHeading = ({ boardData }: { boardData: BoardType }) => {
 
   return (
     <div
-      className="text-2xl font-medium px-[5%] cursor-pointer"
+      className="text-2xl font-medium cursor-pointer"
       onClick={() => {
         updateSelected(boardData.id, 'board');
       }}
     >
-      {`Board ${boardData.name}`}
+      <span className="text-gray-600">Board </span>
+      <span>{boardData.name}</span>
     </div>
   );
 };

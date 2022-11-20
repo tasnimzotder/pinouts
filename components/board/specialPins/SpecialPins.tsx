@@ -17,7 +17,7 @@ const SpecialPinsView = ({
             onClick={() => {
               updateSelected(cat.id, cat.type);
             }}
-            className="bg-red-200 hover:bg-blue-200 cursor-pointer px-1 rounded-sm w-fit"
+            className="bg-blue-400 hover:bg-blue-500 text-white cursor-pointer px-1 rounded-sm w-fit"
           >
             {cat.name}
           </div>

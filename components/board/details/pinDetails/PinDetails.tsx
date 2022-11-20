@@ -4,14 +4,7 @@ import BoardType, {
 } from '../../../../lib/interfaces/board.interface';
 import { to_capitalize } from '@utils/textMods.util';
 import { check_pwm } from '@utils/pin.util';
-
-const HighlightText = ({ text }: { text: string | undefined }) => {
-  return (
-    <span className="bg-gray-300 px-1 py-0 rounded-sm font-semibold">
-      {text}
-    </span>
-  );
-};
+import HighlightText from '@components/common/utils/HighlightText';
 
 const PinDetails = ({
   pinData,
@@ -20,14 +13,24 @@ const PinDetails = ({
   pinData: PinType;
   specialPins: SpecialPinsType[];
 }) => {
-  return (
-    <div className="bg-blue-50 flex flex-col gap-1 text-lg">
-      {/* <div>Pin Details</div> */}
+  const supportedProtocols = specialPins
+    .filter(
+      (pins) => pins.type === 'protocol' && pins.pins.includes(pinData.id)
+    )
+    .map((protocol) => {
+      return (
+        <span key={protocol.name} className="font-semibold mx-2">
+          {protocol.name}
+        </span>
+      );
+    });
 
+  return (
+    <div className="flex flex-col gap-1 text-lg">
+      {/* <div>Pin Details</div> */}
       <div>
         Board Pin: <HighlightText text={pinData.board_pin} />
       </div>
-
       {/* pin names */}
       <div className="flex flex-row gap-2">
         Other Names:{' '}
@@ -35,13 +38,11 @@ const PinDetails = ({
           return <HighlightText text={name} key={key} />;
         })}
       </div>
-
       {/* pintype */}
       <div>
         Type:
         <span className="font-semibold"> {to_capitalize(pinData.type)}</span>
       </div>
-
       {/* directions */}
       <div>
         Directions:{' '}
@@ -53,23 +54,9 @@ const PinDetails = ({
           );
         })}
       </div>
-
-      {specialPins[0] && (
-        <div>
-          Supported Protocols:{' '}
-          {/* {supportedProtocols.map((protocol) => protocol.name).join(', ')} */}
-          {specialPins
-            .filter((pins) => pins.type === 'protocol')
-            .map((protocol) => {
-              return (
-                <span key={protocol.name} className="font-semibold mx-1">
-                  {protocol.name}
-                </span>
-              );
-            })}
-        </div>
+      {supportedProtocols[0] && (
+        <div>Supported Protocols: {supportedProtocols}</div>
       )}
-
       {/* pwm */}
       {pinData.type === 'digital' && (
         <div>
@@ -77,6 +64,13 @@ const PinDetails = ({
           <span className="font-semibold">
             {check_pwm(specialPins, pinData.id) ? 'True' : 'False'}
           </span>
+        </div>
+      )}
+
+      {/* note */}
+      {pinData.notes && (
+        <div>
+          Notes: <span>{pinData.notes}</span>
         </div>
       )}
     </div>

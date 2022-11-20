@@ -9,6 +9,12 @@ const ArduinoUno: any = {
     name: 'ATmega328P',
     id: 'atmega328p',
   },
+  positions: {
+    power_connector: {
+      side: 'top',
+      align: 'start',
+    },
+  },
   special_pins: [
     {
       id: 'spi',

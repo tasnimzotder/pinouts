@@ -6,7 +6,7 @@ const MainLayouts = ({ children }: { children: React.ReactNode }) => {
     <div className="min-h-screen flex flex-col justify-between">
       <div>
         <Header />
-        <main>{children}</main>
+        <main className="max-w-7xl mx-auto">{children}</main>
       </div>
 
       <Footer />

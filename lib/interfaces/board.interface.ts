@@ -22,6 +22,18 @@ type BoardType = {
     name: string;
     url: string;
   };
+  positions?: PositionsType;
+};
+
+type PositionsType = {
+  // [key: string]: {
+  //   x: number;
+  //   y: number;
+  // };
+  power_connector?: {
+    side: 'left' | 'right' | 'top' | 'bottom';
+    align: 'start' | 'end' | 'center';
+  };
 };
 
 type PinsCountsType = {
@@ -50,7 +62,7 @@ type PinType = {
   disconnected?: boolean;
   disconnected_reason?: string;
   description?: string;
-  note?: string;
+  notes?: Array<string>;
   pull_resistor?: 'up' | 'down';
   voltage?: number;
   current?: {
@@ -80,7 +92,7 @@ type SpecialPinsType = {
     | 'pin'
     | 'other';
   pins: Array<string>;
-  note?: string;
+  notes?: Array<string>;
 };
 
 export default BoardType;

@@ -2,7 +2,7 @@ import BoardType from '../../lib/interfaces/board.interface';
 
 const NodeMCUv2: BoardType = {
   id: 'nodemcuv2',
-  name: 'NodeMCUv2',
+  name: 'NodeMCU v2',
   description: 'NodeMCU is an open source IoT platform.',
   image: 'nodemcuv2.png',
   operating_voltage: 3.3,
@@ -20,6 +20,12 @@ const NodeMCUv2: BoardType = {
     name: 'ESP8266',
     id: 'esp8266',
   },
+  positions: {
+    power_connector: {
+      side: 'bottom',
+      align: 'center',
+    },
+  },
   special_pins: [
     {
       id: 'i2c',
@@ -31,20 +37,32 @@ const NodeMCUv2: BoardType = {
       id: 'pwm',
       name: 'PWM',
       type: 'pin',
-      pins: ['r3', 'r6', 'r8', 'r11'],
+      pins: ['r3', 'r5', 'r8', 'r11'],
     },
     {
       id: 'adc',
       name: 'ADC',
       type: 'pin',
       pins: ['l1'],
-      note: '8-bit ADC',
+      notes: ['8-bit ADC'],
     },
     {
       id: 'built-in-led',
       name: 'Built-in LED',
       type: 'pin',
       pins: ['l4'],
+    },
+    {
+      id: 'power',
+      name: 'Power',
+      type: 'pin',
+      pins: ['l11', 'l15', 'r6', 'r15'],
+    },
+    {
+      id: 'ground',
+      name: 'Ground',
+      type: 'pin',
+      pins: ['l10', 'l14', 'r7', 'r14'],
     },
   ],
   pins: {
@@ -55,6 +73,7 @@ const NodeMCUv2: BoardType = {
         board_pin: 'A0',
         type: 'analog',
         directions: ['in'],
+        notes: ["8-bit ADC. It's also a GPIO pin."],
       },
       {
         id: 'l2',

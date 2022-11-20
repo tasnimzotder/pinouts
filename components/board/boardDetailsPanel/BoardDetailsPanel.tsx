@@ -28,7 +28,7 @@ const BoardDetailsPanel = ({ boardData }: { boardData: BoardType }) => {
   // }
 
   return (
-    <div className="bg-red-300 w-1/2 px-5 py-3">
+    <div className="w-1/2 px-5 py-3">
       <BoardHeading boardData={boardData} />
       <SpecialPinsView special_pins={specialPins} />
 
@@ -44,7 +44,7 @@ const BoardDetailsPanel = ({ boardData }: { boardData: BoardType }) => {
             {type} {selected}
             {
               boardData.special_pins.find((pin_s) => pin_s.id === selected)
-                ?.note
+                ?.notes
             }
           </div>
         )}
@@ -63,6 +63,6 @@ const BoardDetailsPanel = ({ boardData }: { boardData: BoardType }) => {
       </div>
     </div>
   );
-};;
+};
 
 export default BoardDetailsPanel;

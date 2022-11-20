@@ -1,7 +1,9 @@
 const ChipPageSingle = () => {
   return (
-    <div>
-      <h1>Chip</h1>
+    <div className="my-[10%]">
+      <h1 className="text-xl text-center">
+        Interactive chip pinouts are coming soon!
+      </h1>
     </div>
   );
 };

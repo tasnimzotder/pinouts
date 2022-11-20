@@ -6,7 +6,6 @@ const ChipsPage: NextPage = () => {
   return (
     <div>
       <h1>Chips</h1>
-
       <ChipList chipsData={Chips} />
     </div>
   );

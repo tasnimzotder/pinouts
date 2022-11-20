@@ -36,7 +36,7 @@ const PinCol = ({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full my-2">
       {pins_c.map((pin, idx) => {
         const isHighlighted = highlightedPins.includes(pin.id);
 
@@ -44,9 +44,9 @@ const PinCol = ({
           <div
             key={idx}
             className={
-              'bg-red-200 flex flex-row gap-3 px-3 m-2 p-1 hover:bg-blue-200 cursor-pointer' +
+              'bg-gray-200 flex flex-row gap-3 px-3 m-2 p-1 hover:bg-blue-200 hover:text-gray-700 cursor-pointer' +
               ` ${rounded}` +
-              ` ${isHighlighted ? 'bg-blue-300' : ''}`
+              ` ${isHighlighted ? 'bg-blue-400 text-white' : ''}`
             }
             onClick={() => {
               updateSelected(pin.id, pin.type);
@@ -61,7 +61,7 @@ const PinCol = ({
               {col === 'right' && (
                 <div className="flex flex-row items-center gap-2">
                   <PinSymbol type={pin.type} />
-                  <div className="bg-red-300 rounded-sm px-1">
+                  <div className="bg-gray-300 text-gray-700 rounded-sm px-1">
                     {pin.board_pin}
                   </div>
                 </div>
@@ -71,7 +71,7 @@ const PinCol = ({
 
               {col === 'left' && (
                 <div className="flex flex-row items-center gap-2">
-                  <div className="bg-red-300 rounded-sm px-1">
+                  <div className="bg-gray-300 text-gray-700 rounded-sm px-1">
                     {pin.board_pin}
                   </div>
                   <PinSymbol type={pin.type} />
