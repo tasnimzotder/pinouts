@@ -7,7 +7,7 @@ type ProtocolType = {
     number_of_wires: number;
     clock_wire: boolean;
   };
-  speed: string;
+  speed?: string;
 };
 
 export type { ProtocolType };

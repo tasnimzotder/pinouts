@@ -61,7 +61,6 @@ const NodeMCUv2: BoardType = {
       name: 'PWM',
       type: 'pin',
       pins: ['r3', 'r5', 'r8', 'r11'],
-      notes: ['note 2'],
     },
     {
       id: 'adc',

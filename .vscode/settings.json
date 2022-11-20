@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["eeprom", "Microcontrollers", "Pinouts", "sram", "uart"]
+  "cSpell.words": [
+    "eeprom",
+    "microcontroller",
+    "Microcontrollers",
+    "Pinouts",
+    "sram",
+    "uart"
+  ]
 }

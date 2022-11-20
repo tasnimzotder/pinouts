@@ -47,10 +47,12 @@ const ProtocolDetails = ({
         )}
       </div>
 
-      <div>
-        <span>Speed: </span>
-        <SemiBoldSpan>{protocolData?.speed}</SemiBoldSpan>
-      </div>
+      {protocolData?.speed && (
+        <div>
+          <span>Speed: </span>
+          <SemiBoldSpan>{protocolData?.speed}</SemiBoldSpan>
+        </div>
+      )}
 
       {protocolData?.used_for && (
         <div>

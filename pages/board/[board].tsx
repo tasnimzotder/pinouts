@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 const BoardPageSingle = ({ boardData }: { boardData: BoardType }) => {
   return (
     <div>
-      <div className="flex flex-row justify-evenly mx-auto px-[5%] py-5">
+      <div className="flex flex-row sm:flex-wrap lg:flex-nowrap justify-evenly mx-auto px-[5%] py-5">
         <PinsInteractive boardData={boardData} />
         <BoardDetailsPanel boardData={boardData} />
       </div>

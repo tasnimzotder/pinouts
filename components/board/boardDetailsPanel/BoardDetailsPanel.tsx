@@ -29,7 +29,7 @@ const BoardDetailsPanel = ({ boardData }: { boardData: BoardType }) => {
   // }
 
   return (
-    <div className="w-1/2 px-5 py-3">
+    <div className="w-1/2 max-w-2xl px-5 py-3">
       <BoardHeading boardData={boardData} />
       <SpecialPinsView special_pins={specialPins} />
 
