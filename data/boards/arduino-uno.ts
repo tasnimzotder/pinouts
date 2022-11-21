@@ -1,10 +1,10 @@
 import BoardType from '../../lib/interfaces/board.interface';
 
 const ArduinoUno: BoardType = {
-  id: 'arduinouno',
+  id: 'arduino-uno',
   name: 'Arduino UNO',
   description: 'Arduino UNO is an open source IoT platform.',
-  image: 'arduinouno.png',
+  image: 'arduino-uno.png',
   chip: {
     name: 'ATmega328P',
     id: 'atmega328p',

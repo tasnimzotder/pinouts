@@ -1,10 +1,10 @@
 import BoardType from '../../lib/interfaces/board.interface';
 
 const NodeMCUv2: BoardType = {
-  id: 'nodemcuv2',
+  id: 'nodemcu-v2',
   name: 'NodeMCU v2',
   description: 'NodeMCU is an open source IoT platform.',
-  image: 'nodemcuv2.png',
+  image: 'nodemcu-v2.png',
   supported_protocols: ['SPI', 'I2C', 'UART'],
   supported_frameworks: ['Arduino', 'MicroPython'],
   pins_counts: {

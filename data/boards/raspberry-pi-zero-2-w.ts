@@ -244,15 +244,15 @@ const pins_all: PinsType = {
     },
     {
       id: 'r20',
-      names: ['GND'],
+      names: ['GPIO21'],
       board_pin: '40',
-      type: 'ground',
+      type: 'digital',
     },
   ],
 };
 
 const RaspberryPiZero2W: BoardType = {
-  id: 'raspberrypizero2w',
+  id: 'raspberry-pi-zero-2-w',
   name: 'Raspberry Pi Zero 2 W',
   description:
     'Raspberry Pi is a series of small single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote teaching of basic computer science in schools and in developing countries.',
