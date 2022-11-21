@@ -42,7 +42,7 @@ const BoardPageSingle = ({ boardData }: { boardData: BoardType }) => {
         {/* <meta property="twitter:image" content="" /> */}
       </Head>
       <main>
-        <div className="flex flex-row sm:flex-wrap lg:flex-nowrap justify-evenly mx-auto px-[5%] py-5">
+        <div className="flex flex-row flex-wrap  justify-evenly mx-auto px-[5%] py-5">
           <PinsInteractive boardData={boardData} />
           <BoardDetailsPanel boardData={boardData} />
         </div>
