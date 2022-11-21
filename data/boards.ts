@@ -25,6 +25,18 @@ const boards: BoardsType = [
       url: 'https://www.arduino.cc/',
     },
   },
+  {
+    id: 'raspberrypizero2w',
+    name: 'Raspberry Pi Zero 2 W',
+    chip: {
+      name: 'ARM Cortex-A53',
+      id: 'armcortexa53',
+    },
+    manufacturer: {
+      name: 'Raspberry Pi Foundation',
+      url: 'https://www.raspberrypi.org/',
+    },
+  },
 ];
 
 export default boards;

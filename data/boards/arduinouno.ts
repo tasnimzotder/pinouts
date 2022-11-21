@@ -16,12 +16,12 @@ const ArduinoUno: BoardType = {
     },
   },
   pins_counts: {
-    gpio: 14,
-    analog: 6,
-    pwm: 6,
-    i2c: 2,
-    spi: 4,
-    uart: 2,
+    GPIO: 14,
+    Analog: 6,
+    PWM: 6,
+    I2C: 2,
+    SPI: 4,
+    UART: 2,
   },
   specifications: {
     clock_speed: '16 MHz',

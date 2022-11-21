@@ -6,6 +6,7 @@ Interactive pinout diagrams for microcontrollers and other electronic components
 
 - [NodeMCU v2 (ESP8266)](https://pinouts.vercel.app/board/nodemcuv2)
 - [Arduino Uno (ATmega328P)](https://pinouts.vercel.app/board/arduinouno)
+- [Raspberry Pi Zero 2 W (ARM Cortex-A53)](https://pinouts.vercel.app/board/raspberrypizero2w)
 
 ## Contributing
 

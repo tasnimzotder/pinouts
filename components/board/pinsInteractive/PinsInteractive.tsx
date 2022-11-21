@@ -43,6 +43,7 @@ const PinsInteractive = ({ boardData }: { boardData: BoardType }) => {
 
   let connector_flex: string = '';
   let connector_align: string = '';
+  let padding: string = '';
 
   const side = boardData.positions?.power_connector?.side || undefined;
   const alignment = boardData.positions?.power_connector?.align || undefined;
@@ -50,15 +51,21 @@ const PinsInteractive = ({ boardData }: { boardData: BoardType }) => {
   switch (side) {
     case 'left':
       connector_flex = 'flex-row';
+      padding = 'py-[12%]';
+      padding = 'py-[12%]';
       break;
     case 'right':
       connector_flex = 'flex-row-reverse';
+      padding = 'py-[12%]';
       break;
     case 'top':
       connector_flex = 'flex-col';
+      padding = 'px-[12%]';
       break;
     case 'bottom':
       connector_flex = 'flex-col-reverse';
+      padding = 'px-[12%]';
+      break;
 
     default:
       break;
@@ -80,9 +87,11 @@ const PinsInteractive = ({ boardData }: { boardData: BoardType }) => {
   }
 
   return (
-    <div className={'flex p-5' + ` ${connector_flex} ${connector_align}`}>
+    <div className={'flex m-5 ' + ` ${connector_flex} ${connector_align}`}>
       {/* power connector */}
-      <div>{side && alignment && <USBConnector side={side} />}</div>
+      <div className={padding}>
+        {side && alignment && <USBConnector side={side} />}
+      </div>
 
       <div className="flex flex-row justify-center gap-3">
         <PinCol
