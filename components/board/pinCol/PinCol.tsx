@@ -36,7 +36,7 @@ const PinCol = ({
   };
 
   return (
-    <div className="w-full my-2">
+    <div className="w-full text-sm">
       {pins_c.map((pin, idx) => {
         const isHighlighted = highlightedPins.includes(pin.id);
 

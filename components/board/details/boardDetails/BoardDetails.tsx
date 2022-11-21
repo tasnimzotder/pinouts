@@ -19,13 +19,6 @@ const BoardDetails = ({ boardData }: { boardData: BoardType }) => {
         </Link>
       </div>
 
-      <div>
-        Operating Voltage:{' '}
-        <span className="font-semibold">
-          {boardData.specifications?.operation_voltage}V
-        </span>
-      </div>
-
       {/* technical specifications */}
       {boardData.specifications?.clock_speed && (
         <div>
@@ -144,28 +137,40 @@ const BoardDetails = ({ boardData }: { boardData: BoardType }) => {
         </div>
       )}
 
-      <div className="px-[5%]">
-        <table className="my-3 w-full text-center border-spacing-2 border-blue-200 border-2">
-          <thead>
-            <tr>
-              <th>GPIO</th>
-              <th>Analog</th>
-              <th>I2C</th>
-              <th>SPI</th>
-              <th>UART</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{boardData.pins_counts?.gpio}</td>
-              <td>{boardData.pins_counts?.analog}</td>
-              <td>{boardData.pins_counts?.i2c}</td>
-              <td>{boardData.pins_counts?.spi}</td>
-              <td>{boardData.pins_counts?.uart}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      {boardData.pins_counts && (
+        <div className="px-[5%]">
+          <PinsCountView pinsCount={boardData.pins_counts} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+const PinsCountView = ({
+  pinsCount,
+}: {
+  pinsCount: {
+    [key: string]: number;
+  };
+}) => {
+  return (
+    <div>
+      <table className="my-3 w-full text-center border-spacing-2 border-blue-200 border-2">
+        <thead>
+          <tr>
+            {Object.keys(pinsCount).map((key, index) => {
+              return <th key={index}>{key}</th>;
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {Object.values(pinsCount).map((value, index) => {
+              return <td key={index}>{value}</td>;
+            })}
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

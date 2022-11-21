@@ -1,19 +1,19 @@
 import BoardType from '../../lib/interfaces/board.interface';
 
 const NodeMCUv2: BoardType = {
-  id: 'nodemcuv2',
+  id: 'nodemcu-v2',
   name: 'NodeMCU v2',
   description: 'NodeMCU is an open source IoT platform.',
-  image: 'nodemcuv2.png',
+  image: 'nodemcu-v2.png',
   supported_protocols: ['SPI', 'I2C', 'UART'],
   supported_frameworks: ['Arduino', 'MicroPython'],
   pins_counts: {
-    gpio: 17,
-    analog: 1,
-    pwm: 4,
-    i2c: 2,
-    spi: 4,
-    uart: 2,
+    GPIO: 17,
+    Analog: 1,
+    PWM: 4,
+    I2C: 2,
+    SPI: 4,
+    UART: 2,
   },
   chip: {
     name: 'ESP8266',

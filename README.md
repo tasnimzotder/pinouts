@@ -4,8 +4,9 @@ Interactive pinout diagrams for microcontrollers and other electronic components
 
 ## Supported devices
 
-- [NodeMCU v2 (ESP8266)](https://pinouts.vercel.app/board/nodemcuv2)
-- [Arduino Uno (ATmega328P)](https://pinouts.vercel.app/board/arduinouno)
+- [NodeMCU v2 (ESP8266)](https://pinouts.vercel.app/board/nodemcu-v2)
+- [Arduino Uno (ATmega328P)](https://pinouts.vercel.app/board/arduino-uno)
+- [Raspberry Pi Zero 2 W (ARM Cortex-A53)](https://pinouts.vercel.app/board/raspberry-pi-zero-2-w)
 
 ## Contributing
 
@@ -21,8 +22,8 @@ If you want to add support for a new device (board), please follow these steps:
 
 The file name should be the same as the device name, but with the following changes:
 
-- The spaces should be omitted.
-- All non-alphanumeric characters should be replaced with a dash (`-`).
+- The spaces should be replaced with dashes (`-`).
+- All non-alphanumeric characters should be omitted.
 - All letters should be lowercase.
 - The file name should be unique.
 - The file name should not contain any spaces.

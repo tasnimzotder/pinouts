@@ -53,12 +53,12 @@ type PositionsType = {
 };
 
 type PinsCountsType = {
-  gpio?: number;
-  analog?: number;
-  pwm?: number;
-  i2c?: number;
-  spi?: number;
-  uart?: number;
+  GPIO?: number;
+  Analog?: number;
+  PWM?: number;
+  I2C?: number;
+  SPI?: number;
+  UART?: number;
 };
 
 type PinsType = {

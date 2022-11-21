@@ -2,7 +2,7 @@ import BoardsType from '../lib/interfaces/boards.interface';
 
 const boards: BoardsType = [
   {
-    id: 'nodemcuv2',
+    id: 'nodemcu-v2',
     name: 'NodeMCU',
     chip: {
       name: 'ESP8266',
@@ -14,7 +14,7 @@ const boards: BoardsType = [
     },
   },
   {
-    id: 'arduinouno',
+    id: 'arduino-uno',
     name: 'Arduino UNO',
     chip: {
       name: 'ATmega328P',
@@ -23,6 +23,18 @@ const boards: BoardsType = [
     manufacturer: {
       name: 'Arduino',
       url: 'https://www.arduino.cc/',
+    },
+  },
+  {
+    id: 'raspberry-pi-zero-2-w',
+    name: 'Raspberry Pi Zero 2 W',
+    chip: {
+      name: 'ARM Cortex-A53',
+      id: 'armcortexa53',
+    },
+    manufacturer: {
+      name: 'Raspberry Pi Foundation',
+      url: 'https://www.raspberrypi.org/',
     },
   },
 ];
