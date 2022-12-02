@@ -1,10 +1,15 @@
 {
   "cSpell.words": [
+    "datasheet",
+    "Downloadables",
     "eeprom",
     "microcontroller",
     "Microcontrollers",
     "Pinouts",
     "sram",
-    "uart"
-  ]
+    "uart",
+    "Wemos"
+  ],
+  "todo-tree.tree.showBadges": true,
+  "todo-tree.tree.showCountsInTree": true
 }

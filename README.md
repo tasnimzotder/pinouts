@@ -4,8 +4,9 @@ Interactive pinout diagrams for microcontrollers and other electronic components
 
 ## Supported devices
 
-- [NodeMCU v2 (ESP8266)](https://pinouts.vercel.app/board/nodemcu-v2)
 - [Arduino Uno (ATmega328P)](https://pinouts.vercel.app/board/arduino-uno)
+- [Arduino Nano (ATmega328P)](https://pinouts.vercel.app/board/arduino-nano-new)
+- [NodeMCU v2 (ESP8266)](https://pinouts.vercel.app/board/nodemcu-v2)
 - [Raspberry Pi Zero 2 W (ARM Cortex-A53)](https://pinouts.vercel.app/board/raspberry-pi-zero-2-w)
 
 ## Contributing

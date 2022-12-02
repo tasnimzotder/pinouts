@@ -37,6 +37,18 @@ const boards: BoardsType = [
       url: 'https://www.raspberrypi.org/',
     },
   },
+  {
+    id: 'arduino-nano-new',
+    name: 'Arduino Nano',
+    chip: {
+      name: 'ATmega328P',
+      id: 'atmega328p',
+    },
+    manufacturer: {
+      name: 'Arduino',
+      url: 'https://www.arduino.cc/',
+    },
+  },
 ];
 
 export default boards;

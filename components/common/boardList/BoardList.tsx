@@ -45,7 +45,19 @@ const BoardList = () => {
   useEffect(() => {
     const getBoards = async () => {
       const data = await import('@data/boards');
-      setBoards(data.default);
+
+      const sortedBoards = data.default.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+
+        return 0;
+      });
+
+      setBoards(sortedBoards);
     };
 
     getBoards();
