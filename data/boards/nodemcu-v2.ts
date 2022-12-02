@@ -19,6 +19,10 @@ const NodeMCUv2: BoardType = {
     name: 'ESP8266',
     id: 'esp8266',
   },
+  documents: {
+    datasheet:
+      'https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf',
+  },
   positions: {
     power_connector: {
       side: 'bottom',

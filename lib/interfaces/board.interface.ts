@@ -2,7 +2,7 @@ type BoardType = {
   id: string;
   name: string;
   description: string;
-  image: string;
+  image?: string;
   pins: PinsType;
   special_pins: Array<SpecialPinsType>;
   supported_protocols?: Array<string>;
@@ -12,13 +12,18 @@ type BoardType = {
     name: string;
     id: string;
   };
-
+  documents?: BoardDocumentsType;
   manufacturer?: {
     name: string;
     url: string;
   };
   positions?: PositionsType;
   specifications?: SpecificationsType;
+};
+
+type BoardDocumentsType = {
+  schematic?: string;
+  datasheet?: string;
 };
 
 type SpecificationsType = {
@@ -31,7 +36,7 @@ type SpecificationsType = {
     min: number;
     max: number;
   };
-  max_current?: number;
+  max_current?: string;
   adc_range?: {
     min: number;
     max: number;
@@ -54,6 +59,7 @@ type PositionsType = {
 
 type PinsCountsType = {
   GPIO?: number;
+  Digital?: number;
   Analog?: number;
   PWM?: number;
   I2C?: number;

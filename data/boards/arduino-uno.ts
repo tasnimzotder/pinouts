@@ -9,6 +9,12 @@ const ArduinoUno: BoardType = {
     name: 'ATmega328P',
     id: 'atmega328p',
   },
+  documents: {
+    datasheet:
+      'https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf',
+    schematic:
+      'https://www.arduino.cc/en/uploads/Main/arduino-uno-schematic.pdf',
+  },
   positions: {
     power_connector: {
       side: 'top',
