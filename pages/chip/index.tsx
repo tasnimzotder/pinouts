@@ -1,12 +1,145 @@
-import ChipList from '@components/common/chipList/ChipList';
-import { NextPage } from 'next';
-import { Chips } from '@data/chips';
+import ChipList from "@components/common/chipList/ChipList";
+import { NextPage } from "next";
+import Head from "next/head";
+import { Badge } from "@components/ui/badge";
+import { Button } from "@components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@components/ui/card";
+import { Cpu, Sparkles, ArrowLeft, Microchip } from "lucide-react";
+import Link from "next/link";
+import { Chips } from "@data/chips";
 
 const ChipsPage: NextPage = () => {
+  const meta = {
+    title: "Microcontrollers | Pinouts",
+    description: "Interactive pinouts for various microcontrollers and chips",
+    url: "https://pinouts.vercel.app/chip",
+    author: {
+      name: "Tasnim Zotder",
+    },
+  };
+
   return (
     <div>
-      <h1>Chips</h1>
-      <ChipList chipsData={Chips} />
+      <Head>
+        <title>{meta.title}</title>
+        <meta name="title" content={meta.title} />
+        <meta name="description" content={meta.description} />
+        <meta name="author" content={meta.author.name} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={meta.url} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={meta.url} />
+        <meta property="twitter:title" content={meta.title} />
+        <meta property="twitter:description" content={meta.description} />
+      </Head>
+
+      <main className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
+        <div className="container mx-auto px-4 py-4">
+          {/* Back Navigation */}
+          <div className="mb-4">
+            <Button variant="ghost" asChild className="gap-2">
+              <Link href="/">
+                <ArrowLeft className="w-4 h-4" />
+                Back to Home
+              </Link>
+            </Button>
+          </div>
+
+          {/* Page Header */}
+          <div className="text-center mb-6">
+            <div className="flex justify-center mb-3">
+              <Badge
+                variant="secondary"
+                className="px-3 py-1 text-sm flex items-center gap-2"
+              >
+                <Sparkles className="w-4 h-4" />
+                Hardware Collection
+              </Badge>
+            </div>
+
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+              <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
+                Microcontrollers
+              </span>
+            </h1>
+
+            <p className="text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
+              Explore detailed specifications and pinout information for various
+              microcontrollers.
+              <span className="text-foreground font-medium">
+                {" "}
+                Click any chip to view its details.
+              </span>
+            </p>
+
+            {/* Stats */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm">
+              <div className="flex items-center gap-2">
+                <Cpu className="w-4 h-4 text-primary" />
+                <span className="text-muted-foreground">
+                  {Chips.length} Chips Available
+                </span>
+              </div>
+              <div className="hidden sm:block w-px h-4 bg-border" />
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+                <span className="text-muted-foreground">Coming Soon</span>
+              </div>
+              <div className="hidden sm:block w-px h-4 bg-border" />
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+                <span className="text-muted-foreground">Technical Specs</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Chips Grid */}
+          <Card className="max-w-6xl mx-auto">
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center gap-2">
+                <Microchip className="w-5 h-5" />
+                Available Microcontrollers
+              </CardTitle>
+              <CardDescription>
+                Click on any microcontroller to explore its detailed
+                specifications
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <ChipList chipsData={Chips} />
+            </CardContent>
+          </Card>
+
+          {/* Call to Action */}
+          <div className="mt-8 text-center">
+            <Card className="max-w-2xl mx-auto border-dashed">
+              <CardContent className="p-4">
+                <h3 className="text-lg font-semibold mb-2">Missing a Chip?</h3>
+                <p className="text-muted-foreground mb-3">
+                  Help expand our collection by contributing new chip
+                  definitions
+                </p>
+                <Button asChild>
+                  <Link
+                    href="https://github.com/tasnimzotder/pinouts"
+                    target="_blank"
+                  >
+                    Contribute on GitHub
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };

@@ -9,21 +9,36 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.9",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.0.4",
-    "next": "13.0.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.6.0",
-    "sass": "^1.56.1",
-    "typescript": "4.9.3"
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-hover-card": "^1.1.15",
+    "@radix-ui/react-menubar": "^1.1.16",
+    "@radix-ui/react-progress": "^1.1.7",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.1.1",
+    "lucide-react": "^0.539.0",
+    "next": "15.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.0.0",
+    "sass": "^1.80.0",
+    "tailwind-merge": "^3.3.1",
+    "typescript": "^5.6.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.19",
-    "tailwindcss": "^3.2.4"
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^3.4.0",
+    "tailwindcss-animate": "^1.0.7"
   }
 }

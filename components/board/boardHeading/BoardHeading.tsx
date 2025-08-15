@@ -1,18 +1,21 @@
-import BoardType from '../../../lib/interfaces/board.interface';
-import { useSelected } from '../../../lib/contexts/selected.context';
+import BoardType from "../../../lib/interfaces/board.interface";
+import { useSelected } from "../../../lib/contexts/selected.context";
+import { Badge } from "@components/ui/badge";
 
 const BoardHeading = ({ boardData }: { boardData: BoardType }) => {
   const { updateSelected } = useSelected();
 
   return (
     <div
-      className="text-2xl font-medium cursor-pointer"
+      className="cursor-pointer hover:opacity-80 transition-opacity"
       onClick={() => {
-        updateSelected(boardData.id, 'board');
+        updateSelected(boardData.id, "board");
       }}
     >
-      <span className="text-gray-600">Board </span>
-      <span>{boardData.name}</span>
+      <h3 className="text-xl font-semibold mb-2">{boardData.name}</h3>
+      <Badge variant="secondary" className="text-xs">
+        Click to view board information
+      </Badge>
     </div>
   );
 };

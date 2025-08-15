@@ -1,15 +1,23 @@
-import BoardList from '@components/common/boardList/BoardList';
-import Heading from '@components/homePage/heading/Heading';
-import Head from 'next/head';
-import Link from 'next/link';
+import BoardList from "@components/common/boardList/BoardList";
+import Heading from "@components/homePage/heading/Heading";
+import Head from "next/head";
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@components/ui/card";
+import { Button } from "@components/ui/button";
 
 export default function Home() {
   const meta = {
-    title: 'Pinouts',
-    description: 'Interactive pinouts for various boards, chips, and more',
-    url: 'https://pinouts.vercel.app',
+    title: "Pinouts",
+    description: "Interactive pinouts for various boards, chips, and more",
+    url: "https://pinouts.vercel.app",
     author: {
-      name: 'Tasnim Zotder',
+      name: "Tasnim Zotder",
     },
   };
 
@@ -39,15 +47,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="max-w-5xl mx-auto">
-        <Heading />
+      <main className="max-w-5xl mx-auto py-8">
+        <div className="px-3 space-y-8">
+          <Heading />
 
-        <div className="max-w-3xl mx-auto">
-          <Link href="/board" className="text-xl font-medium my-5">
-            Boards: Interactive Pinouts
-          </Link>
-
-          <BoardList />
+          <Card className="max-w-3xl mx-auto">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                <span>Boards: Interactive Pinouts</span>
+                <Button asChild variant="outline">
+                  <Link href="/board">View All Boards</Link>
+                </Button>
+              </CardTitle>
+              <CardDescription>
+                Explore interactive pinout diagrams for popular development
+                boards
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <BoardList />
+            </CardContent>
+          </Card>
         </div>
       </main>
     </div>
